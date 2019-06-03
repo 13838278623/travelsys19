@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qfedu.dao.MealMapper">
+  <resultMap id="BaseResultMap" type="com.qfedu.entity.Meal">
+    <id column="mid" jdbcType="INTEGER" property="mid" />
+    <result column="mdate" jdbcType="DATE" property="mdate" />
+    <result column="mstandard" jdbcType="VARCHAR" property="mstandard" />
+    <result column="myoprice" jdbcType="VARCHAR" property="myoprice" />
+    <result column="mchprice" jdbcType="VARCHAR" property="mchprice" />
+    <result column="mnum" jdbcType="INTEGER" property="mnum" />
+    <result column="moperate" jdbcType="VARCHAR" property="moperate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    mid, mdate, mstandard, myoprice, mchprice, mnum, moperate
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_meal
+    where mid = #{mid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_meal
+    where mid = #{mid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.qfedu.entity.Meal">
+    insert into t_meal (mid, mdate, mstandard, 
+      myoprice, mchprice, mnum, 
+      moperate)
+    values (#{mid,jdbcType=INTEGER}, #{mdate,jdbcType=DATE}, #{mstandard,jdbcType=VARCHAR}, 
+      #{myoprice,jdbcType=VARCHAR}, #{mchprice,jdbcType=VARCHAR}, #{mnum,jdbcType=INTEGER}, 
+      #{moperate,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.qfedu.entity.Meal">
+    insert into t_meal
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="mid != null">
+        mid,
+      </if>
+      <if test="mdate != null">
+        mdate,
+      </if>
+      <if test="mstandard != null">
+        mstandard,
+      </if>
+      <if test="myoprice != null">
+        myoprice,
+      </if>
+      <if test="mchprice != null">
+        mchprice,
+      </if>
+      <if test="mnum != null">
+        mnum,
+      </if>
+      <if test="moperate != null">
+        moperate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="mid != null">
+        #{mid,jdbcType=INTEGER},
+      </if>
+      <if test="mdate != null">
+        #{mdate,jdbcType=DATE},
+      </if>
+      <if test="mstandard != null">
+        #{mstandard,jdbcType=VARCHAR},
+      </if>
+      <if test="myoprice != null">
+        #{myoprice,jdbcType=VARCHAR},
+      </if>
+      <if test="mchprice != null">
+        #{mchprice,jdbcType=VARCHAR},
+      </if>
+      <if test="mnum != null">
+        #{mnum,jdbcType=INTEGER},
+      </if>
+      <if test="moperate != null">
+        #{moperate,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qfedu.entity.Meal">
+    update t_meal
+    <set>
+      <if test="mdate != null">
+        mdate = #{mdate,jdbcType=DATE},
+      </if>
+      <if test="mstandard != null">
+        mstandard = #{mstandard,jdbcType=VARCHAR},
+      </if>
+      <if test="myoprice != null">
+        myoprice = #{myoprice,jdbcType=VARCHAR},
+      </if>
+      <if test="mchprice != null">
+        mchprice = #{mchprice,jdbcType=VARCHAR},
+      </if>
+      <if test="mnum != null">
+        mnum = #{mnum,jdbcType=INTEGER},
+      </if>
+      <if test="moperate != null">
+        moperate = #{moperate,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where mid = #{mid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qfedu.entity.Meal">
+    update t_meal
+    set mdate = #{mdate,jdbcType=DATE},
+      mstandard = #{mstandard,jdbcType=VARCHAR},
+      myoprice = #{myoprice,jdbcType=VARCHAR},
+      mchprice = #{mchprice,jdbcType=VARCHAR},
+      mnum = #{mnum,jdbcType=INTEGER},
+      moperate = #{moperate,jdbcType=VARCHAR}
+    where mid = #{mid,jdbcType=INTEGER}
+  </update>
+</mapper>

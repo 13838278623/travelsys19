@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qfedu.dao.TicketMapper">
+  <resultMap id="BaseResultMap" type="com.qfedu.entity.Ticket">
+    <id column="tid" jdbcType="INTEGER" property="tid" />
+    <result column="ttype" jdbcType="VARCHAR" property="ttype" />
+    <result column="toutcity" jdbcType="VARCHAR" property="toutcity" />
+    <result column="tincity" jdbcType="VARCHAR" property="tincity" />
+    <result column="tdate" jdbcType="VARCHAR" property="tdate" />
+    <result column="tcompany" jdbcType="VARCHAR" property="tcompany" />
+    <result column="tsite" jdbcType="VARCHAR" property="tsite" />
+    <result column="tinfo" jdbcType="VARCHAR" property="tinfo" />
+    <result column="tphone" jdbcType="VARCHAR" property="tphone" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    tid, ttype, toutcity, tincity, tdate, tcompany, tsite, tinfo, tphone
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_ticket
+    where tid = #{tid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_ticket
+    where tid = #{tid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.qfedu.entity.Ticket">
+    insert into t_ticket (tid, ttype, toutcity, 
+      tincity, tdate, tcompany, 
+      tsite, tinfo, tphone
+      )
+    values (#{tid,jdbcType=INTEGER}, #{ttype,jdbcType=VARCHAR}, #{toutcity,jdbcType=VARCHAR}, 
+      #{tincity,jdbcType=VARCHAR}, #{tdate,jdbcType=VARCHAR}, #{tcompany,jdbcType=VARCHAR}, 
+      #{tsite,jdbcType=VARCHAR}, #{tinfo,jdbcType=VARCHAR}, #{tphone,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.qfedu.entity.Ticket">
+    insert into t_ticket
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tid != null">
+        tid,
+      </if>
+      <if test="ttype != null">
+        ttype,
+      </if>
+      <if test="toutcity != null">
+        toutcity,
+      </if>
+      <if test="tincity != null">
+        tincity,
+      </if>
+      <if test="tdate != null">
+        tdate,
+      </if>
+      <if test="tcompany != null">
+        tcompany,
+      </if>
+      <if test="tsite != null">
+        tsite,
+      </if>
+      <if test="tinfo != null">
+        tinfo,
+      </if>
+      <if test="tphone != null">
+        tphone,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tid != null">
+        #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="ttype != null">
+        #{ttype,jdbcType=VARCHAR},
+      </if>
+      <if test="toutcity != null">
+        #{toutcity,jdbcType=VARCHAR},
+      </if>
+      <if test="tincity != null">
+        #{tincity,jdbcType=VARCHAR},
+      </if>
+      <if test="tdate != null">
+        #{tdate,jdbcType=VARCHAR},
+      </if>
+      <if test="tcompany != null">
+        #{tcompany,jdbcType=VARCHAR},
+      </if>
+      <if test="tsite != null">
+        #{tsite,jdbcType=VARCHAR},
+      </if>
+      <if test="tinfo != null">
+        #{tinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="tphone != null">
+        #{tphone,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qfedu.entity.Ticket">
+    update t_ticket
+    <set>
+      <if test="ttype != null">
+        ttype = #{ttype,jdbcType=VARCHAR},
+      </if>
+      <if test="toutcity != null">
+        toutcity = #{toutcity,jdbcType=VARCHAR},
+      </if>
+      <if test="tincity != null">
+        tincity = #{tincity,jdbcType=VARCHAR},
+      </if>
+      <if test="tdate != null">
+        tdate = #{tdate,jdbcType=VARCHAR},
+      </if>
+      <if test="tcompany != null">
+        tcompany = #{tcompany,jdbcType=VARCHAR},
+      </if>
+      <if test="tsite != null">
+        tsite = #{tsite,jdbcType=VARCHAR},
+      </if>
+      <if test="tinfo != null">
+        tinfo = #{tinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="tphone != null">
+        tphone = #{tphone,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where tid = #{tid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qfedu.entity.Ticket">
+    update t_ticket
+    set ttype = #{ttype,jdbcType=VARCHAR},
+      toutcity = #{toutcity,jdbcType=VARCHAR},
+      tincity = #{tincity,jdbcType=VARCHAR},
+      tdate = #{tdate,jdbcType=VARCHAR},
+      tcompany = #{tcompany,jdbcType=VARCHAR},
+      tsite = #{tsite,jdbcType=VARCHAR},
+      tinfo = #{tinfo,jdbcType=VARCHAR},
+      tphone = #{tphone,jdbcType=VARCHAR}
+    where tid = #{tid,jdbcType=INTEGER}
+  </update>
+</mapper>
