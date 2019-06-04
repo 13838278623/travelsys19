@@ -25,7 +25,7 @@ public class UserLoginController {
     @ApiOperation(value = "用户查询",notes = "查询一个用户")
     @RequestMapping("/user/list.do")
     public JsonBean list(@RequestBody int uid){
-
+        System.out.println("wfgh");
         try {
             User user = userService.selectUser(uid);
             return new JsonBean(1,user);
