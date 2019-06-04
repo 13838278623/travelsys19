@@ -13,7 +13,7 @@
     <result column="uzip" jdbcType="VARCHAR" property="uzip" />
   </resultMap>
   <sql id="Base_Column_List">
-    uid, uname, upassword, uphone, uemail, ucode, usex, ubirth, uzip
+    uid, uname, upassword, uphone, uemail, ucode, usex, ubirth, uzip,uadress
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -28,10 +28,10 @@
   <insert id="insert" parameterType="com.qfedu.entity.User">
     insert into t_user (uid, uname, upassword, 
       uphone, uemail, ucode, 
-      usex, ubirth, uzip)
+      usex, ubirth, uzip,uadress)
     values (#{uid,jdbcType=INTEGER}, #{uname,jdbcType=VARCHAR}, #{upassword,jdbcType=VARCHAR}, 
       #{uphone,jdbcType=VARCHAR}, #{uemail,jdbcType=VARCHAR}, #{ucode,jdbcType=VARCHAR}, 
-      #{usex,jdbcType=VARCHAR}, #{ubirth,jdbcType=DATE}, #{uzip,jdbcType=VARCHAR})
+      #{usex,jdbcType=VARCHAR}, #{ubirth,jdbcType=DATE}, #{uzip,jdbcType=VARCHAR},#{uaddress,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.qfedu.entity.User">
     insert into t_user
@@ -63,6 +63,9 @@
       <if test="uzip != null">
         uzip,
       </if>
+      <if test="uaddress != null">
+        uaddress,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="uid != null">
@@ -91,6 +94,11 @@
       </if>
       <if test="uzip != null">
         #{uzip,jdbcType=VARCHAR},
+      </if>
+
+
+      <if test="uaddress != null">
+        #{uaddress,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -121,6 +129,10 @@
       <if test="uzip != null">
         uzip = #{uzip,jdbcType=VARCHAR},
       </if>
+      <if test="uaddress!=null">
+        uaddress=#{uaddress}
+
+      </if>
     </set>
     where uid = #{uid,jdbcType=INTEGER}
   </update>
@@ -133,7 +145,16 @@
       ucode = #{ucode,jdbcType=VARCHAR},
       usex = #{usex,jdbcType=VARCHAR},
       ubirth = #{ubirth,jdbcType=DATE},
-      uzip = #{uzip,jdbcType=VARCHAR}
+      uzip = #{uzip,jdbcType=VARCHAR},
+      uaddress=#{uaddress}
     where uid = #{uid,jdbcType=INTEGER}
   </update>
+
+  <!--查找所有用户-->
+  <select id="selectAllUser" resultType="com.qfedu.entity.User">
+
+    select * from t_user
+
+
+  </select>
 </mapper>

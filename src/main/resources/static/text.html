@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+    <script type="text/javascript" src="Scripts/jquery-1.4.2.min.js"></script>
+    <style type="text/css">
+	.a2{ display:none}
+	</style>
+</head>
+
+<body>
+ <div class="aa">
+		<div class="showmore"><a href="#">【<span class="open">修改</span>】</a></div>
+		<div class="a2">
+        <p>你需要留言吗？</p>
+<textarea style="width:500px; height:90px;"></textarea>
+ <p>*剩余字数： 200 </p>
+        <input type="button" class="surebtn" value="确认信息" />
+        </div>
+	</div>
+ <script>
+ $(".showmore a span").toggle(
+      function () {
+         $(this.parentNode.parentNode).next().show();
+		 $(".open").text("关闭");
+		  $(".bb").text("");
+      },
+      function () {
+        $(this.parentNode.parentNode).next().hide();
+		 $(".open").text("修改");
+		  $(".bb").text("如有留言，请填写，200字内。");
+      }
+    );
+</script>
+</body>
+</html>

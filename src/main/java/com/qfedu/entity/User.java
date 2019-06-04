@@ -21,6 +21,8 @@ public class User {
 
     private String uzip;
 
+    private String uaddress;
+
     public Integer getUid() {
         return uid;
     }
@@ -91,5 +93,13 @@ public class User {
 
     public void setUzip(String uzip) {
         this.uzip = uzip == null ? null : uzip.trim();
+    }
+
+    public String getUaddress() {
+        return uaddress;
+    }
+
+    public void setUaddress(String uaddress) {
+        this.uaddress = uaddress;
     }
 }
