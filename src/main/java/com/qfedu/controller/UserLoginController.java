@@ -26,6 +26,7 @@ public class UserLoginController {
     @RequestMapping("/user/list.do")
     public JsonBean list(@RequestBody int uid){
         try {
+            System.out.println("2356");
             User user = userService.selectUser(uid);
             return new JsonBean(1,user);
         } catch (Exception e) {
