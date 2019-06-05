@@ -24,4 +24,9 @@ private TicketMapper ticketDao;
         ticketDao.insertTicketr(ticket);
 
     }
+
+    @Override
+    public void updateByPrimaryKeySelective(User user) {
+        userDao.updateByPrimaryKeySelective(user);
+    }
 }

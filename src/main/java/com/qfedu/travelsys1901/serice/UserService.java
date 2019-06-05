@@ -8,4 +8,6 @@ public interface UserService {
     User selectUser(int uid);
 
     void add(UseTicket ticket);
+
+    void updateByPrimaryKeySelective(User record);
 }

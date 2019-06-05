@@ -8,10 +8,8 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import springfox.documentation.spring.web.json.Json;
 
 @Api(value = "用户操作",tags = "用户操作")
 @ResponseBody
@@ -22,7 +20,7 @@ public class UserLoginController {
     private UserService userService;
     @CrossOrigin
     @ApiOperation(value = "用户查询",notes = "查询一个用户")
-    @RequestMapping("/user/find.do")
+    @RequestMapping(value = "/user/find.do",method = RequestMethod.GET)
     public JsonBean find( int uid){
         try {
             User user = userService.selectUser(uid);
@@ -32,6 +30,28 @@ public class UserLoginController {
             return new JsonBean(0,e.getMessage());
         }
     }
+
+    @CrossOrigin
+    @ApiOperation(value = "修改用户",notes = "修改一个用户")
+    @RequestMapping(value = "user/update.do", method = RequestMethod.PUT)
+    public JsonBean update(User user){
+
+        try {
+            userService.updateByPrimaryKeySelective(user);
+
+            return new JsonBean(1,null);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new JsonBean(0,e.getMessage());
+        }
+
+    }
+
+
+
+
+
+
     @CrossOrigin
     @ApiOperation(value = "添加机票",notes = "添加订单")
     @RequestMapping("/user/add.do")
