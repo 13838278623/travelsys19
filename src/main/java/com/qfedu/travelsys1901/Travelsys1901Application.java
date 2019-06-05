@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
-@MapperScan("com.qfedu.travelsys1901")
+@MapperScan("com.qfedu.travelsys1901.dao")
 @EnableSwagger2
 public class Travelsys1901Application {
 
