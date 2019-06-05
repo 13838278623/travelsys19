@@ -138,4 +138,9 @@
       tphone = #{tphone,jdbcType=VARCHAR}
     where tid = #{tid,jdbcType=INTEGER}
   </update>
+
+  <insert id="insertTicketr" parameterType="com.qfedu.travelsys1901.vo.UseTicket">
+    insert  into t_ticket values(#{ttype}, #{toutcity}, #{tincity}, #{tdate}, #{tphone},#{tsite},#{text})
+    insert into t_user(uname, uphone,uemail, uadress) values (#{uname},#{tphone},#{uemail}, #{uadress})
+  </insert>
 </mapper>
