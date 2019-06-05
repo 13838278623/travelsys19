@@ -22,8 +22,8 @@ public class UserLoginController {
     private UserService userService;
     @CrossOrigin
     @ApiOperation(value = "用户查询",notes = "查询一个用户")
-    @RequestMapping("/user/list.do")
-    public JsonBean list(@RequestBody int uid){
+    @RequestMapping("/user/find.do")
+    public JsonBean find( int uid){
         try {
             User user = userService.selectUser(uid);
             return new JsonBean(1,user);
