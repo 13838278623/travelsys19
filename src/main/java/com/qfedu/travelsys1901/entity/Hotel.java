@@ -13,7 +13,7 @@ public class Hotel {
 
     private String hsite;
 
-    private String tHotelcol;
+    private String t_Hotelcol;
 
     private String tinfo;
 
@@ -57,12 +57,12 @@ public class Hotel {
         this.hsite = hsite == null ? null : hsite.trim();
     }
 
-    public String gettHotelcol() {
-        return tHotelcol;
+    public String getT_Hotelcol() {
+        return t_Hotelcol;
     }
 
-    public void settHotelcol(String tHotelcol) {
-        this.tHotelcol = tHotelcol == null ? null : tHotelcol.trim();
+    public void setT_Hotelcol(String t_Hotelcol) {
+        this.t_Hotelcol = t_Hotelcol;
     }
 
     public String getTinfo() {
