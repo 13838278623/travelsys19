@@ -13,6 +13,14 @@ public class Shop {
 
     private String sphone;
 
+    private String sphoto;
+
+    private String sstan;
+
+    private String smax;
+
+    private String sdate;
+
     public Integer getSid() {
         return sid;
     }
@@ -59,5 +67,37 @@ public class Shop {
 
     public void setSphone(String sphone) {
         this.sphone = sphone == null ? null : sphone.trim();
+    }
+
+    public String getSphoto() {
+        return sphoto;
+    }
+
+    public void setSphoto(String sphoto) {
+        this.sphoto = sphoto == null ? null : sphoto.trim();
+    }
+
+    public String getSstan() {
+        return sstan;
+    }
+
+    public void setSstan(String sstan) {
+        this.sstan = sstan == null ? null : sstan.trim();
+    }
+
+    public String getSmax() {
+        return smax;
+    }
+
+    public void setSmax(String smax) {
+        this.smax = smax == null ? null : smax.trim();
+    }
+
+    public String getSdate() {
+        return sdate;
+    }
+
+    public void setSdate(String sdate) {
+        this.sdate = sdate == null ? null : sdate.trim();
     }
 }

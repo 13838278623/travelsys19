@@ -1,10 +1,8 @@
 package com.qfedu.travelsys1901.service.impl;
 
 import com.qfedu.travelsys1901.dao.HotelMapper;
-import com.qfedu.travelsys1901.dao.ShopMapper;
 import com.qfedu.travelsys1901.dao.UserMapper;
 import com.qfedu.travelsys1901.entity.Hotel;
-import com.qfedu.travelsys1901.entity.Shop;
 import com.qfedu.travelsys1901.entity.User;
 import com.qfedu.travelsys1901.serice.HotelService;
 import com.qfedu.travelsys1901.vo.JsonBean;
