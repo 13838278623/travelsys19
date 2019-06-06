@@ -79,4 +79,9 @@
       vline = #{vline,jdbcType=VARCHAR}
     where vid = #{vid,jdbcType=INTEGER}
   </update>
+
+  <!--查询所有景色路线-->
+  <select id="findAll" resultType="com.qfedu.travelsys1901.entity.View">
+    select * from t_view
+  </select>
 </mapper>

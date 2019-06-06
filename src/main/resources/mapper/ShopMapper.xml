@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.qfedu.travelsys1901.dao.ShopMapper">
-  <resultMap id="BaseResultMap" type="com.qfedu.travelsys1901.entity.Shop">
+<mapper namespace="com.qfedu.dao.ShopMapper">
+  <resultMap id="BaseResultMap" type="com.qfedu.entity.Shop">
     <id column="sid" jdbcType="INTEGER" property="sid" />
     <result column="syonum" jdbcType="INTEGER" property="syonum" />
     <result column="schnum" jdbcType="INTEGER" property="schnum" />
     <result column="sjuannum" jdbcType="VARCHAR" property="sjuannum" />
     <result column="spassword" jdbcType="VARCHAR" property="spassword" />
     <result column="sphone" jdbcType="VARCHAR" property="sphone" />
+    <result column="sphoto" jdbcType="VARCHAR" property="sphoto" />
+    <result column="sstan" jdbcType="VARCHAR" property="sstan" />
+    <result column="smax" jdbcType="VARCHAR" property="smax" />
+    <result column="sdate" jdbcType="VARCHAR" property="sdate" />
   </resultMap>
   <sql id="Base_Column_List">
-    sid, syonum, schnum, sjuannum, spassword, sphone
+    sid, syonum, schnum, sjuannum, spassword, sphone, sphoto, sstan, smax, sdate
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -22,15 +26,17 @@
     delete from t_shop
     where sid = #{sid,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.qfedu.travelsys1901.entity.Shop">
+  <insert id="insert" parameterType="com.qfedu.entity.Shop">
     insert into t_shop (sid, syonum, schnum, 
-      sjuannum, spassword, sphone
-      )
+      sjuannum, spassword, sphone, 
+      sphoto, sstan, smax, 
+      sdate)
     values (#{sid,jdbcType=INTEGER}, #{syonum,jdbcType=INTEGER}, #{schnum,jdbcType=INTEGER}, 
-      #{sjuannum,jdbcType=VARCHAR}, #{spassword,jdbcType=VARCHAR}, #{sphone,jdbcType=VARCHAR}
-      )
+      #{sjuannum,jdbcType=VARCHAR}, #{spassword,jdbcType=VARCHAR}, #{sphone,jdbcType=VARCHAR}, 
+      #{sphoto,jdbcType=VARCHAR}, #{sstan,jdbcType=VARCHAR}, #{smax,jdbcType=VARCHAR}, 
+      #{sdate,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.qfedu.travelsys1901.entity.Shop">
+  <insert id="insertSelective" parameterType="com.qfedu.entity.Shop">
     insert into t_shop
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="sid != null">
@@ -50,6 +56,18 @@
       </if>
       <if test="sphone != null">
         sphone,
+      </if>
+      <if test="sphoto != null">
+        sphoto,
+      </if>
+      <if test="sstan != null">
+        sstan,
+      </if>
+      <if test="smax != null">
+        smax,
+      </if>
+      <if test="sdate != null">
+        sdate,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -71,9 +89,21 @@
       <if test="sphone != null">
         #{sphone,jdbcType=VARCHAR},
       </if>
+      <if test="sphoto != null">
+        #{sphoto,jdbcType=VARCHAR},
+      </if>
+      <if test="sstan != null">
+        #{sstan,jdbcType=VARCHAR},
+      </if>
+      <if test="smax != null">
+        #{smax,jdbcType=VARCHAR},
+      </if>
+      <if test="sdate != null">
+        #{sdate,jdbcType=VARCHAR},
+      </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.qfedu.travelsys1901.entity.Shop">
+  <update id="updateByPrimaryKeySelective" parameterType="com.qfedu.entity.Shop">
     update t_shop
     <set>
       <if test="syonum != null">
@@ -91,16 +121,32 @@
       <if test="sphone != null">
         sphone = #{sphone,jdbcType=VARCHAR},
       </if>
+      <if test="sphoto != null">
+        sphoto = #{sphoto,jdbcType=VARCHAR},
+      </if>
+      <if test="sstan != null">
+        sstan = #{sstan,jdbcType=VARCHAR},
+      </if>
+      <if test="smax != null">
+        smax = #{smax,jdbcType=VARCHAR},
+      </if>
+      <if test="sdate != null">
+        sdate = #{sdate,jdbcType=VARCHAR},
+      </if>
     </set>
     where sid = #{sid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.qfedu.travelsys1901.entity.Shop">
+  <update id="updateByPrimaryKey" parameterType="com.qfedu.entity.Shop">
     update t_shop
     set syonum = #{syonum,jdbcType=INTEGER},
       schnum = #{schnum,jdbcType=INTEGER},
       sjuannum = #{sjuannum,jdbcType=VARCHAR},
       spassword = #{spassword,jdbcType=VARCHAR},
-      sphone = #{sphone,jdbcType=VARCHAR}
+      sphone = #{sphone,jdbcType=VARCHAR},
+      sphoto = #{sphoto,jdbcType=VARCHAR},
+      sstan = #{sstan,jdbcType=VARCHAR},
+      smax = #{smax,jdbcType=VARCHAR},
+      sdate = #{sdate,jdbcType=VARCHAR}
     where sid = #{sid,jdbcType=INTEGER}
   </update>
 </mapper>

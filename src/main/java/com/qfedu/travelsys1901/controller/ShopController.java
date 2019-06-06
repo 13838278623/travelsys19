@@ -18,10 +18,19 @@ public class ShopController {
 
     @CrossOrigin
     @ApiOperation(value = "订购套餐",notes = "订购套餐")
-    @RequestMapping(value ="shop/add.do",method = RequestMethod.PUT)
+    @RequestMapping(value ="/shop/add.do",method = RequestMethod.PUT)
     public JsonBean  add(Shop shop){
 
-      return   shopService.insertSelective(shop);
+        return   shopService.insertSelective(shop);
+
+    }
+
+    @CrossOrigin
+    @ApiOperation(value = "查询套餐",notes = "查询订购套餐")
+    @RequestMapping(value ="/shop/list.do",method = RequestMethod.PUT)
+    public JsonBean  list(){
+
+        return   shopService.findAll();
 
     }
 
