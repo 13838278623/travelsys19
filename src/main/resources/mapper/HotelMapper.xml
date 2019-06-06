@@ -49,7 +49,7 @@
       <if test="hsite != null">
         hsite,
       </if>
-      <if test="tHotelcol != null">
+      <if test="t_Hotelcol != null">
         t_hotelcol,
       </if>
       <if test="tinfo != null">
@@ -72,7 +72,7 @@
       <if test="hsite != null">
         #{hsite,jdbcType=VARCHAR},
       </if>
-      <if test="tHotelcol != null">
+      <if test="t_Hotelcol != null">
         #{tHotelcol,jdbcType=VARCHAR},
       </if>
       <if test="tinfo != null">
