@@ -7,7 +7,7 @@
     <result column="hindate" jdbcType="DATE" property="hindate" />
     <result column="houtdate" jdbcType="DATE" property="houtdate" />
     <result column="hsite" jdbcType="VARCHAR" property="hsite" />
-    <result column="t_hotelcol" jdbcType="VARCHAR" property="tHotelcol" />
+    <result column="t_hotelcol" jdbcType="VARCHAR" property="t_Hotelcol" />
     <result column="tinfo" jdbcType="VARCHAR" property="tinfo" />
   </resultMap>
   <sql id="Base_Column_List">
@@ -28,7 +28,7 @@
       houtdate, hsite, t_hotelcol, 
       tinfo)
     values (#{hid,jdbcType=INTEGER}, #{hincity,jdbcType=VARCHAR}, #{hindate,jdbcType=DATE}, 
-      #{houtdate,jdbcType=DATE}, #{hsite,jdbcType=VARCHAR}, #{tHotelcol,jdbcType=VARCHAR}, 
+      #{houtdate,jdbcType=DATE}, #{hsite,jdbcType=VARCHAR}, #{t_Hotelcol,jdbcType=VARCHAR},
       #{tinfo,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.qfedu.travelsys1901.entity.Hotel">
@@ -73,7 +73,7 @@
         #{hsite,jdbcType=VARCHAR},
       </if>
       <if test="t_Hotelcol != null">
-        #{tHotelcol,jdbcType=VARCHAR},
+        #{t_Hotelcol,jdbcType=VARCHAR},
       </if>
       <if test="tinfo != null">
         #{tinfo,jdbcType=VARCHAR},
@@ -95,8 +95,8 @@
       <if test="hsite != null">
         hsite = #{hsite,jdbcType=VARCHAR},
       </if>
-      <if test="tHotelcol != null">
-        t_hotelcol = #{tHotelcol,jdbcType=VARCHAR},
+      <if test="t_Hotelcol != null">
+        t_hotelcol = #{t_Hotelcol,jdbcType=VARCHAR},
       </if>
       <if test="tinfo != null">
         tinfo = #{tinfo,jdbcType=VARCHAR},
@@ -110,7 +110,7 @@
       hindate = #{hindate,jdbcType=DATE},
       houtdate = #{houtdate,jdbcType=DATE},
       hsite = #{hsite,jdbcType=VARCHAR},
-      t_hotelcol = #{tHotelcol,jdbcType=VARCHAR},
+      t_hotelcol = #{t_Hotelcol,jdbcType=VARCHAR},
       tinfo = #{tinfo,jdbcType=VARCHAR}
     where hid = #{hid,jdbcType=INTEGER}
   </update>

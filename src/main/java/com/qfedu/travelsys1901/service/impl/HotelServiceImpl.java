@@ -29,7 +29,9 @@ public class HotelServiceImpl implements HotelService {
         hotel.setHincity(vHotel.getHincity());
         hotel.setHindate(vHotel.getHindate());
         hotel.setHsite(vHotel.getHsite());
+
         hotel.setT_Hotelcol(vHotel.getT_hotelcol());
+
         hotel.setHoutdate(vHotel.getHoutdate());
 
         user.setUaddress(vHotel.getUaddress());
