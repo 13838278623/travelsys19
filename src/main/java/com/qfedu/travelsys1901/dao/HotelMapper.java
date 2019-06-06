@@ -7,7 +7,7 @@ public interface HotelMapper {
 
     int insert(Hotel record);
 
-    int insertSelective(Hotel record);
+    void insertSelective(Hotel record);
 
     Hotel selectByPrimaryKey(Integer hid);
 

@@ -1,8 +1,9 @@
 package com.qfedu.travelsys1901.serice;
 
 import com.qfedu.travelsys1901.entity.Shop;
+import com.qfedu.travelsys1901.vo.JsonBean;
 
 public interface ShopService {
 
-    void insertSelective(Shop record);
+     JsonBean insertSelective(Shop record);
 }
