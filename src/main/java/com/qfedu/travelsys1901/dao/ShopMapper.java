@@ -1,5 +1,7 @@
 package com.qfedu.travelsys1901.dao;
 
+import com.qfedu.travelsys1901.entity.Shop;
+
 import java.util.List;
 
 public interface ShopMapper {

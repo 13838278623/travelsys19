@@ -1,6 +1,7 @@
 package com.qfedu.travelsys1901.controller;
 
 
+import com.qfedu.travelsys1901.entity.Shop;
 import com.qfedu.travelsys1901.serice.ShopService;
 import com.qfedu.travelsys1901.vo.JsonBean;
 import io.swagger.annotations.Api;
