@@ -1,5 +1,6 @@
 package com.qfedu.travelsys1901.controller;
 
+
 import com.qfedu.travelsys1901.serice.ShopService;
 import com.qfedu.travelsys1901.vo.JsonBean;
 import io.swagger.annotations.Api;
@@ -26,7 +27,7 @@ public class ShopController {
 
     @CrossOrigin
     @ApiOperation(value = "查询套餐",notes = "查询订购套餐")
-    @RequestMapping(value ="/shop/list.do",method = RequestMethod.PUT)
+    @RequestMapping(value ="/shop/list.do",method = RequestMethod.GET)
     public JsonBean  list(){
 
         return   shopService.findAll();

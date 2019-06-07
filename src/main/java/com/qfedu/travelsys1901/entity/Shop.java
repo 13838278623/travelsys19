@@ -3,23 +3,19 @@ package com.qfedu.travelsys1901.entity;
 public class Shop {
     private Integer sid;
 
-    private Integer syonum;
+    private Integer syoprice;
 
-    private Integer schnum;
-
-    private String sjuannum;
-
-    private String spassword;
-
-    private String sphone;
+    private Integer schprice;
 
     private String sphoto;
 
     private String sstan;
 
-    private String smax;
+    private Integer smax;
 
     private String sdate;
+
+    private String svline;
 
     public Integer getSid() {
         return sid;
@@ -29,44 +25,20 @@ public class Shop {
         this.sid = sid;
     }
 
-    public Integer getSyonum() {
-        return syonum;
+    public Integer getSyoprice() {
+        return syoprice;
     }
 
-    public void setSyonum(Integer syonum) {
-        this.syonum = syonum;
+    public void setSyoprice(Integer syoprice) {
+        this.syoprice = syoprice;
     }
 
-    public Integer getSchnum() {
-        return schnum;
+    public Integer getSchprice() {
+        return schprice;
     }
 
-    public void setSchnum(Integer schnum) {
-        this.schnum = schnum;
-    }
-
-    public String getSjuannum() {
-        return sjuannum;
-    }
-
-    public void setSjuannum(String sjuannum) {
-        this.sjuannum = sjuannum == null ? null : sjuannum.trim();
-    }
-
-    public String getSpassword() {
-        return spassword;
-    }
-
-    public void setSpassword(String spassword) {
-        this.spassword = spassword == null ? null : spassword.trim();
-    }
-
-    public String getSphone() {
-        return sphone;
-    }
-
-    public void setSphone(String sphone) {
-        this.sphone = sphone == null ? null : sphone.trim();
+    public void setSchprice(Integer schprice) {
+        this.schprice = schprice;
     }
 
     public String getSphoto() {
@@ -85,12 +57,12 @@ public class Shop {
         this.sstan = sstan == null ? null : sstan.trim();
     }
 
-    public String getSmax() {
+    public Integer getSmax() {
         return smax;
     }
 
-    public void setSmax(String smax) {
-        this.smax = smax == null ? null : smax.trim();
+    public void setSmax(Integer smax) {
+        this.smax = smax;
     }
 
     public String getSdate() {
@@ -99,5 +71,13 @@ public class Shop {
 
     public void setSdate(String sdate) {
         this.sdate = sdate == null ? null : sdate.trim();
+    }
+
+    public String getSvline() {
+        return svline;
+    }
+
+    public void setSvline(String svline) {
+        this.svline = svline == null ? null : svline.trim();
     }
 }
