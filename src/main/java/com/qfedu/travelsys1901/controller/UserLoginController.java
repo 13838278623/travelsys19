@@ -1,5 +1,6 @@
 package com.qfedu.travelsys1901.controller;
 
+import com.qfedu.travelsys1901.entity.Ticket;
 import com.qfedu.travelsys1901.entity.User;
 import com.qfedu.travelsys1901.serice.UserService;
 import com.qfedu.travelsys1901.vo.JsonBean;
@@ -10,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.spring.web.json.Json;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Api(value = "用户操作",tags = "用户操作")
 @ResponseBody
@@ -49,15 +52,12 @@ public class UserLoginController {
 
 
 
-
-
-
     @CrossOrigin
     @ApiOperation(value = "添加机票",notes = "添加订单")
-    @RequestMapping("/user/add.do")
-    public JsonBean add(@RequestBody UseTicket ticket){
+    @RequestMapping(value = "/user/add.do", method = RequestMethod.POST)
+    public JsonBean add(UseTicket useTicket, HttpServletRequest request){
         try {
-            userService.add(ticket);
+           //userService.addUseTicket(useTicket,request);
             return new JsonBean(1,null);
         } catch (Exception e) {
             e.printStackTrace();

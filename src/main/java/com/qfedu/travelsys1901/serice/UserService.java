@@ -2,15 +2,16 @@ package com.qfedu.travelsys1901.serice;
 
 import com.qfedu.travelsys1901.entity.Ticket;
 import com.qfedu.travelsys1901.entity.User;
+import com.qfedu.travelsys1901.vo.JsonBean;
 import com.qfedu.travelsys1901.vo.UseTicket;
+
+import javax.servlet.http.HttpServletRequest;
 
 public interface UserService {
 
     User selectUser(int uid);
 
-    void addUser (User user, httpServletRequest );
-
-    void addTicker(Ticket ticket);
+    JsonBean addUseTicket (UseTicket useTicket);
 
     void updateByPrimaryKeySelective(User record);
 }

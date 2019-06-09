@@ -2,43 +2,59 @@ package com.qfedu.travelsys1901.service.impl;
 
 import com.qfedu.travelsys1901.dao.TicketMapper;
 import com.qfedu.travelsys1901.dao.UserMapper;
+import com.qfedu.travelsys1901.entity.Hotel;
 import com.qfedu.travelsys1901.entity.Ticket;
 import com.qfedu.travelsys1901.entity.User;
 import com.qfedu.travelsys1901.serice.UserService;
+import com.qfedu.travelsys1901.vo.JsonBean;
 import com.qfedu.travelsys1901.vo.UseTicket;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
+
 @Service
 public class UserServiceImpl implements UserService {
-@Autowired
-private UserMapper userDao;
-@Autowired
-private TicketMapper ticketDao;
+    @Autowired
+    private UserMapper userDao;
+    @Autowired
+    private TicketMapper ticketDao;
     @Override
     public User selectUser(int uid) {
         return userDao.selectByPrimaryKey(uid);
     }
 
     @Override
-    public void addUser(User user) {
-        userDao.insert(user);
+    public JsonBean addUseTicket(UseTicket useTicket) {
+       Ticket tick = new Ticket();
+       tick.setTtype(useTicket.getTtype());
+       tick.setTcompany(useTicket.getTcompany());
+       tick.setTdate(useTicket.getTdate());
+       tick.setTincity(useTicket.getTincity());
+       tick.setTinfo(useTicket.getTinfo());
+       tick.setToutcity(useTicket.getToutcity());
+       tick.setTphone(useTicket.getTphone());
+       tick.setTsite(useTicket.getTsite());
+       tick.setText(useTicket.getText());
+
+        User user = new User();
+        user.setUaddress(useTicket.getUaddress());
+        user.setUemail( useTicket.getUemail());
+        user.setUname(useTicket.getUname());
+        user.setUphone(useTicket.getTphone());
+
+        try {
+         ticketDao.insert(tick);
+            userDao.insertSelective(user);
+            return new JsonBean(1,null);
+        } catch (Exception e) {
+            e.printStackTrace();
+
+            return new JsonBean(0,e.getMessage());
+        }
     }
 
-    @Override
-    public void addTicker(Ticket ticket) {
-        String ttype = request.getParameter("ttype");
-        String toutcity = request.getParameter("toutcity");
-        String tincity = request.getParameter("tincity");
-        String tdate = request.getParameter("tdate");
-        String tphone = request.getParameter("tphone");
-        String tcompany = request.getParameter("tcompany");
-        String tsite = request.getParameter("tsite");
-        String text = request.getParameter("text");
-        String tinfo = request.getParameter("tinfo");
-        Ticket ticket = new Ticket(0, ttype, toutcity, tincity, tdate, tcompany, tsite, tinfo, tphone);
-        ticketDao.insert(ticket);
-    }
 
     @Override
     public void updateByPrimaryKeySelective(User user) {
