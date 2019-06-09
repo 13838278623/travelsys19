@@ -16,5 +16,4 @@ public interface TicketMapper {
 
     int updateByPrimaryKey(Ticket record);
 
-    void insertTicketr(UseTicket ticket);
 }

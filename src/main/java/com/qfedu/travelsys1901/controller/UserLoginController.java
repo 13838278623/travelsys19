@@ -1,5 +1,6 @@
 package com.qfedu.travelsys1901.controller;
 
+import com.qfedu.travelsys1901.entity.Ticket;
 import com.qfedu.travelsys1901.entity.User;
 import com.qfedu.travelsys1901.service.UserService;
 import com.qfedu.travelsys1901.vo.JsonBean;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.spring.web.json.Json;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @Api(value = "用户操作",tags = "用户操作")
@@ -51,15 +53,12 @@ public class UserLoginController {
 
 
 
-
-
-
     @CrossOrigin
     @ApiOperation(value = "添加机票",notes = "添加订单")
-    @RequestMapping("/user/add.do")
-    public JsonBean add(@RequestBody UseTicket ticket){
+    @RequestMapping(value = "/user/add.do", method = RequestMethod.POST)
+    public JsonBean add(UseTicket useTicket, HttpServletRequest request){
         try {
-            userService.add(ticket);
+           //userService.addUseTicket(useTicket,request);
             return new JsonBean(1,null);
         } catch (Exception e) {
             e.printStackTrace();
@@ -67,19 +66,16 @@ public class UserLoginController {
         }
 
     }
-
-
     @CrossOrigin
     @ApiOperation(value = "登录",notes = "登录")
-    @RequestMapping(value = "/user/login.do",method = RequestMethod.GET)
+    @RequestMapping("/user/login.do")
     public JsonBean add(String uphone, String upassword, HttpSession session){
 
 
         session.setAttribute("uphone",uphone);
-       return  userService.selectByPh(uphone,upassword);
+        return  userService.selectByPh(uphone,upassword);
 
     }
-
 
 }
 
