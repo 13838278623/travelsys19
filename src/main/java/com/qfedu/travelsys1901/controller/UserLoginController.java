@@ -71,7 +71,7 @@ public class UserLoginController {
 
     @CrossOrigin
     @ApiOperation(value = "登录",notes = "登录")
-    @RequestMapping("/user/login.do")
+    @RequestMapping(value = "/user/login.do",method = RequestMethod.GET)
     public JsonBean add(String uphone, String upassword, HttpSession session){
 
 

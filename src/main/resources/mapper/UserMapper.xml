@@ -163,6 +163,6 @@
     select
     <include refid="Base_Column_List" />
     from t_user
-    where uid = #{uphone,jdbcType=INTEGER}
+    where uphone= #{uphone}
   </select>
 </mapper>
