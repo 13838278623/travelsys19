@@ -17,8 +17,8 @@ import java.util.Date;
 
 @Service
 public class UserServiceImpl implements UserService {
-    @Autowired
-    private UserMapper userDao;
+  @Autowired
+   private  UserMapper userDao;
     @Autowired
     private TicketMapper ticketDao;
     @Override
@@ -56,11 +56,11 @@ public class UserServiceImpl implements UserService {
         }
     }
 
-
     @Override
-    public void updateByPrimaryKeySelective(User user) {
+    public void updateByPrimaryKeySelective(User  user) {
         userDao.updateByPrimaryKeySelective(user);
     }
+
 
     @Override
     public JsonBean selectByPh(String uphone ,String password) {

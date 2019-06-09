@@ -6,11 +6,12 @@
 <meta name="Author" content="" />
 <title>我的虚拟世界店铺</title>
 <link href="css/css_whir.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="Scripts/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="Scripts/jquery-1.12.2.min.js"></script>
   <script type="text/javascript" language="javascript">
 var m= '01'
 </script>
 
+    <script type="text/javascript" src="Scripts/vue.min.js"></script>
 </head>
 
 <body>
@@ -107,53 +108,39 @@ var m= '01'
         <h1 class="hide_word">
             用户登陆</h1>
     </div>
-    <form>
+    <form onsubmit="return false;">
     <table class="table1">
             <tr>
                 <td class="td1">
-                    <span class="required">*</span><label for="IdentityName">姓名</label>：
+                    <span class="required">*</span><label for="uname">输入姓名</label>：
                 </td>
-                <td class="td2">
-                   <input type="text" class="input01" value="" />
-                </td>
-                <td class="td3">
-                    <span class="input_tips name">（请填写真实姓名）</span>
+
+                <td>
+                    <input type="text" class="input01" value="" name="uname"/>
                 </td>
             </tr>
             <tr>
                 <td class="td1">
-                    <span class="required">*</span><label for="Gender">性别</label>：
+                    <span class="required">*</span><label for="usex">性别</label>：
                 </td>
                 <td>
                      <label>
-                       <input type="radio" name="RadioGroup1" value="单选" id="RadioGroup1_0" checked="checked"/>
+                       <input type="radio" name="usex" value="单选" id="RadioGroup1_0" checked="checked"/>
                        男</label>
                      <label>
-                       <input type="radio" name="RadioGroup1" value="单选" id="RadioGroup1_1" />
+                       <input type="radio" name="usex" value="单选" id="RadioGroup1_1" />
                        女</label>
                      </td>
                 <td>
                 </td>
             </tr>
+
             <tr>
                 <td class="td1">
-                    <span class="required">*</span><label for="IdentityType">证件类型</label>：
+                    <span class="required">*</span><label for="ucode">身份证件号码</label>：
                 </td>
                 <td>
-                    
-                    <select class="long" name="IdentityType">
-                        <option value="IDCard">身份证</option>
-                    </select>
-                </td>
-                <td>
-                </td>
-            </tr>
-            <tr>
-                <td class="td1">
-                    <span class="required">*</span><label for="IdentityNumber">证件号码</label>：
-                </td>
-                <td>
-                 <input type="text" class="input01" value="" />
+                 <input type="text" class="input01" value="" name="ucode"/>
                 </td>
                 <td>
                     <span class="field-validation-valid" data-valmsg-for="IdentityNumber" data-valmsg-replace="true"></span>
@@ -161,10 +148,10 @@ var m= '01'
             </tr>
             <tr>
                 <td class="td1">
-                    <span class="required">*</span><label for="BirthDate">出生日期</label>：
+                    <span class="required">*</span><label for="ubirth">出生日期</label>：
                 </td>
                 <td>
-                    <input type="text" class="input03" value="2012-12-22" />
+                    <input type="date" class="input03"  name="ubirth" />
                 </td>
                 <td>
                 </td>
@@ -172,10 +159,10 @@ var m= '01'
             
                 <tr class="binding">
                     <td class="td1">
-                        <label for="Email">电子邮箱</label>：
+                        <label for=" ">电子邮箱</label>：
                     </td>
                     <td>
-                        <span class="email"> gz_hz***@163.com</span>
+                        <span class="email"> <input type="text" name="uemail"/> </span>
                     </td>
                     <td>
                         <a href="/account/security" class="blank">如须更改绑定的邮箱，请点击此处</a>
@@ -183,10 +170,10 @@ var m= '01'
                 </tr>
                 <tr class="no_bind">
                     <td class="td1">
-                        <label for="Mobile">手机号码</label>：
+                        <label for="uphone">手机号码</label>：
                     </td>
                     <td>
-                        <input type="text" class="input01" value="" />
+                        <input type="text" class="input01" value="" name="uphone" />
                     </td>
                     <td>
                         <a href="#" class="blank">立即绑定</a>
@@ -195,10 +182,10 @@ var m= '01'
                 </tr>
             <tr>
                 <td class="td1">
-                    <label for="ZipCode">邮政编码</label>：
+                    <label for="uzip">邮政编码</label>：
                 </td>
                 <td>
-                    <input type="text" class="input01" value="" />
+                    <input type="text" class="input01" value=""  name="uzip"/>
                 </td>
                 <td>
                     <span class="field-validation-valid" data-valmsg-for="ZipCode" data-valmsg-replace="true"></span>
@@ -206,7 +193,7 @@ var m= '01'
             </tr>
             <tr>
                 <td class="td1 v_top">
-                    <label for="Address">通讯地址</label>：
+                    <label for=uaddress">通讯地址</label>：
                 </td>
                 <td colspan="2">
                     <textarea class="text-box multi-line" id="Address" name="Address">
@@ -313,6 +300,62 @@ $(".open").toggle(
 <h5><a href="#">流量统计</a> | <a href="sitemap.html">网站地图</a> | <a href="#">法律申明</a> | <a href="links.html">友情链接</a> | <a href="#">在线客服</a> | <a href="help.html">帮助中心</a></h5>
 <h4>版权所有 © 2012-2018 我的虚拟世界店铺<br />技术支持： 旅游许可证号：L-GD00000 网站备案号：粤ICP备00000000号</h4>
 </div><!--底部信息 end-->
+
+
+<script type="text/javascript">
+
+
+    $("form").submit( function() {
+        $.ajax({
+            type:"get",
+            url:"/user/update.do"+window.location.search,
+            data:$("form").serialize(),
+            dataType:"json",
+            success:function(data){
+                if(data.code == 1){
+                    window.location.href = "index.html";
+
+                }
+            }
+
+        })
+
+    })
+
+</script>
+
+<script type="text/javascript">
+    var vue = new Vue({
+
+        el: "#app",
+        data: {
+            date: "",
+        },
+        methods: {
+            loadData() {
+                var _this = this;
+
+
+                var date2 = new Date();
+                var timeInfo = date2.getFullYear() + ":" + date2.getMonth() + ":" + date2.getDate() + "  " + date2.getHours() + ":" + date2.getMinutes() + ":" + date2.getSeconds();
+                _this.date = timeInfo;
+            }
+        },
+        created() { // 生命周期相关的函数，放在methods外面；created表示vue对象创建完成
+            this.loadData()
+        }
+
+
+    })
+
+
+
+
+
+
+</script>
+
+
 
 </body>
 </html>

@@ -103,7 +103,7 @@
             用户登陆</h1>
         <span>或<a href="register.html">注册</a></span>
     </div>
-    
+    <form action="/user/login.do"  method="get" onsubmit="return false;">
     <table cellpadding="0" cellspacing="0" border="0">
     <tr>
             <td>
@@ -145,6 +145,7 @@
         </tr>
 
         </table>
+    </form>
     <div class="tips2">
         <h2>
             温馨提示：</h2>
@@ -209,7 +210,7 @@
             dataType:"json",
             success:function(data){
                 if(data.code == 1){
-                    window.location.href=member_index.html;
+                   window.location.href = "member_index.html?uid="+ data.info.uid;
 
                 }
             }

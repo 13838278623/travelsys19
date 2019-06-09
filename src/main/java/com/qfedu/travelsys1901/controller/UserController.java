@@ -8,6 +8,7 @@ import com.qfedu.travelsys1901.vo.UseTicket;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.spring.web.json.Json;
@@ -18,7 +19,7 @@ import javax.servlet.http.HttpSession;
 @Api(value = "用户操作",tags = "用户操作")
 @ResponseBody
 @Controller
-public class UserLoginController {
+public class UserController {
 
     @Autowired
     private UserService userService;
@@ -37,7 +38,7 @@ public class UserLoginController {
 
     @CrossOrigin
     @ApiOperation(value = "修改用户",notes = "修改一个用户")
-    @RequestMapping(value = "user/update.do", method = RequestMethod.PUT)
+    @RequestMapping(value = "/user/update.do", method = RequestMethod.GET)
     public JsonBean update(User user){
 
         try {
@@ -68,7 +69,7 @@ public class UserLoginController {
     }
     @CrossOrigin
     @ApiOperation(value = "登录",notes = "登录")
-    @RequestMapping("/user/login.do")
+    @RequestMapping(value = "/user/login.do",method = RequestMethod.GET)
     public JsonBean add(String uphone, String upassword, HttpSession session){
 
 
