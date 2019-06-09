@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qfedu.travelsys1901.dao.ApplyMapper">
+  <resultMap id="BaseResultMap" type="com.qfedu.travelsys1901.entity.Apply">
+    <id column="aid" jdbcType="INTEGER" property="aid" />
+    <result column="ayonum" jdbcType="INTEGER" property="ayonum" />
+    <result column="achnum" jdbcType="INTEGER" property="achnum" />
+    <result column="asum" jdbcType="INTEGER" property="asum" />
+    <result column="agounum" jdbcType="VARCHAR" property="agounum" />
+    <result column="apassword" jdbcType="VARCHAR" property="apassword" />
+    <result column="aname" jdbcType="VARCHAR" property="aname" />
+    <result column="asex" jdbcType="VARCHAR" property="asex" />
+    <result column="adate" jdbcType="DATE" property="adate" />
+    <result column="acid" jdbcType="VARCHAR" property="acid" />
+    <result column="acidtype" jdbcType="VARCHAR" property="acidtype" />
+    <result column="asite" jdbcType="VARCHAR" property="asite" />
+    <result column="amessage" jdbcType="VARCHAR" property="amessage" />
+    <result column="asexn" jdbcType="VARCHAR" property="asexn" />
+    <result column="aphone" jdbcType="VARCHAR" property="aphone" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    aid, ayonum, achnum, asum, agounum, apassword, aname, asex, adate, acid, acidtype, 
+    asite, amessage, asexn, aphone
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_apply
+    where aid = #{aid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_apply
+    where aid = #{aid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.qfedu.travelsys1901.entity.Apply">
+    insert into t_apply (aid, ayonum, achnum, 
+      asum, agounum, apassword, 
+      aname, asex, adate, acid, 
+      acidtype, asite, amessage, 
+      asexn, aphone)
+    values (#{aid,jdbcType=INTEGER}, #{ayonum,jdbcType=INTEGER}, #{achnum,jdbcType=INTEGER}, 
+      #{asum,jdbcType=INTEGER}, #{agounum,jdbcType=VARCHAR}, #{apassword,jdbcType=VARCHAR}, 
+      #{aname,jdbcType=VARCHAR}, #{asex,jdbcType=VARCHAR}, #{adate,jdbcType=DATE}, #{acid,jdbcType=VARCHAR}, 
+      #{acidtype,jdbcType=VARCHAR}, #{asite,jdbcType=VARCHAR}, #{amessage,jdbcType=VARCHAR}, 
+      #{asexn,jdbcType=VARCHAR}, #{aphone,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.qfedu.travelsys1901.entity.Apply">
+    insert into t_apply
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="aid != null">
+        aid,
+      </if>
+      <if test="ayonum != null">
+        ayonum,
+      </if>
+      <if test="achnum != null">
+        achnum,
+      </if>
+      <if test="asum != null">
+        asum,
+      </if>
+      <if test="agounum != null">
+        agounum,
+      </if>
+      <if test="apassword != null">
+        apassword,
+      </if>
+      <if test="aname != null">
+        aname,
+      </if>
+      <if test="asex != null">
+        asex,
+      </if>
+      <if test="adate != null">
+        adate,
+      </if>
+      <if test="acid != null">
+        acid,
+      </if>
+      <if test="acidtype != null">
+        acidtype,
+      </if>
+      <if test="asite != null">
+        asite,
+      </if>
+      <if test="amessage != null">
+        amessage,
+      </if>
+      <if test="asexn != null">
+        asexn,
+      </if>
+      <if test="aphone != null">
+        aphone,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="aid != null">
+        #{aid,jdbcType=INTEGER},
+      </if>
+      <if test="ayonum != null">
+        #{ayonum,jdbcType=INTEGER},
+      </if>
+      <if test="achnum != null">
+        #{achnum,jdbcType=INTEGER},
+      </if>
+      <if test="asum != null">
+        #{asum,jdbcType=INTEGER},
+      </if>
+      <if test="agounum != null">
+        #{agounum,jdbcType=VARCHAR},
+      </if>
+      <if test="apassword != null">
+        #{apassword,jdbcType=VARCHAR},
+      </if>
+      <if test="aname != null">
+        #{aname,jdbcType=VARCHAR},
+      </if>
+      <if test="asex != null">
+        #{asex,jdbcType=VARCHAR},
+      </if>
+      <if test="adate != null">
+        #{adate,jdbcType=DATE},
+      </if>
+      <if test="acid != null">
+        #{acid,jdbcType=VARCHAR},
+      </if>
+      <if test="acidtype != null">
+        #{acidtype,jdbcType=VARCHAR},
+      </if>
+      <if test="asite != null">
+        #{asite,jdbcType=VARCHAR},
+      </if>
+      <if test="amessage != null">
+        #{amessage,jdbcType=VARCHAR},
+      </if>
+      <if test="asexn != null">
+        #{asexn,jdbcType=VARCHAR},
+      </if>
+      <if test="aphone != null">
+        #{aphone,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.qfedu.travelsys1901.entity.Apply">
+    update t_apply
+    <set>
+      <if test="ayonum != null">
+        ayonum = #{ayonum,jdbcType=INTEGER},
+      </if>
+      <if test="achnum != null">
+        achnum = #{achnum,jdbcType=INTEGER},
+      </if>
+      <if test="asum != null">
+        asum = #{asum,jdbcType=INTEGER},
+      </if>
+      <if test="agounum != null">
+        agounum = #{agounum,jdbcType=VARCHAR},
+      </if>
+      <if test="apassword != null">
+        apassword = #{apassword,jdbcType=VARCHAR},
+      </if>
+      <if test="aname != null">
+        aname = #{aname,jdbcType=VARCHAR},
+      </if>
+      <if test="asex != null">
+        asex = #{asex,jdbcType=VARCHAR},
+      </if>
+      <if test="adate != null">
+        adate = #{adate,jdbcType=DATE},
+      </if>
+      <if test="acid != null">
+        acid = #{acid,jdbcType=VARCHAR},
+      </if>
+      <if test="acidtype != null">
+        acidtype = #{acidtype,jdbcType=VARCHAR},
+      </if>
+      <if test="asite != null">
+        asite = #{asite,jdbcType=VARCHAR},
+      </if>
+      <if test="amessage != null">
+        amessage = #{amessage,jdbcType=VARCHAR},
+      </if>
+      <if test="asexn != null">
+        asexn = #{asexn,jdbcType=VARCHAR},
+      </if>
+      <if test="aphone != null">
+        aphone = #{aphone,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where aid = #{aid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.qfedu.travelsys1901.entity.Apply">
+    update t_apply
+    set ayonum = #{ayonum,jdbcType=INTEGER},
+      achnum = #{achnum,jdbcType=INTEGER},
+      asum = #{asum,jdbcType=INTEGER},
+      agounum = #{agounum,jdbcType=VARCHAR},
+      apassword = #{apassword,jdbcType=VARCHAR},
+      aname = #{aname,jdbcType=VARCHAR},
+      asex = #{asex,jdbcType=VARCHAR},
+      adate = #{adate,jdbcType=DATE},
+      acid = #{acid,jdbcType=VARCHAR},
+      acidtype = #{acidtype,jdbcType=VARCHAR},
+      asite = #{asite,jdbcType=VARCHAR},
+      amessage = #{amessage,jdbcType=VARCHAR},
+      asexn = #{asexn,jdbcType=VARCHAR},
+      aphone = #{aphone,jdbcType=VARCHAR}
+    where aid = #{aid,jdbcType=INTEGER}
+  </update>
+</mapper>

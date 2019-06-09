@@ -2,14 +2,12 @@ package com.qfedu.travelsys1901.entity;
 
 import java.util.Date;
 
-public class Shop {
-    private Integer sid;
+public class ShopCar {
+    private Integer scid;
 
     private Integer syoprice;
 
     private Integer schprice;
-
-    private String sphoto;
 
     private String sstan;
 
@@ -19,12 +17,14 @@ public class Shop {
 
     private String svline;
 
-    public Integer getSid() {
-        return sid;
+    private String sphone;
+
+    public Integer getScid() {
+        return scid;
     }
 
-    public void setSid(Integer sid) {
-        this.sid = sid;
+    public void setScid(Integer scid) {
+        this.scid = scid;
     }
 
     public Integer getSyoprice() {
@@ -39,16 +39,8 @@ public class Shop {
         return schprice;
     }
 
-    public void setSchprice(Integer schprice) {
+    public void setSchprice(int schprice) {
         this.schprice = schprice;
-    }
-
-    public String getSphoto() {
-        return sphoto;
-    }
-
-    public void setSphoto(String sphoto) {
-        this.sphoto = sphoto == null ? null : sphoto.trim();
     }
 
     public String getSstan() {
@@ -81,5 +73,13 @@ public class Shop {
 
     public void setSvline(String svline) {
         this.svline = svline == null ? null : svline.trim();
+    }
+
+    public String getSphone() {
+        return sphone;
+    }
+
+    public void setSphone(String sphone) {
+        this.sphone = sphone == null ? null : sphone.trim();
     }
 }

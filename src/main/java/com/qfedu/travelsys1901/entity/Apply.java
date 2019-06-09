@@ -31,6 +31,8 @@ public class Apply {
 
     private String asexn;
 
+    private String aphone;
+
     public Integer getAid() {
         return aid;
     }
@@ -141,5 +143,13 @@ public class Apply {
 
     public void setAsexn(String asexn) {
         this.asexn = asexn == null ? null : asexn.trim();
+    }
+
+    public String getAphone() {
+        return aphone;
+    }
+
+    public void setAphone(String aphone) {
+        this.aphone = aphone == null ? null : aphone.trim();
     }
 }

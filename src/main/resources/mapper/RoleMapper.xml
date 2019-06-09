@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.qfedu.travelsys1901.dao.RoleMapper">
+<mapper namespace="com.qfedu.travelsys1901.dao.VRoleMapper">
   <resultMap id="BaseResultMap" type="com.qfedu.travelsys1901.entity.Role">
     <id column="rid" jdbcType="INTEGER" property="rid" />
     <result column="rname" jdbcType="VARCHAR" property="rname" />

@@ -2,7 +2,7 @@ package com.qfedu.travelsys1901.dao;
 
 import com.qfedu.travelsys1901.entity.Role;
 
-public interface RoleMapper {
+public interface VRoleMapper {
     int deleteByPrimaryKey(Integer rid);
 
     int insert(Role record);

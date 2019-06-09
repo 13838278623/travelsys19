@@ -9,7 +9,7 @@ import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 
-@Configuration //标记这是一个配置
+@Configuration
 public class SwaggerConfig {
 
     public ApiInfo createA(){
@@ -18,7 +18,7 @@ public class SwaggerConfig {
                 description("数据接口信息").build();
         return info;
     }
-    @Bean//创建对象  修饰方法 方法的返回值必须是引用类型  对象存储在IOC容器
+    @Bean
     public Docket createDocket(){
         Docket docket=new Docket(DocumentationType.SWAGGER_2).apiInfo(createA()).select().
                 apis(RequestHandlerSelectors.basePackage("com.qfedu.travelsys1901.controller")).build();

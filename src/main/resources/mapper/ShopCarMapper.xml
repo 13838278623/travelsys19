@@ -1,51 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.qfedu.travelsys1901.dao.ShopMapper">
-  <resultMap id="BaseResultMap" type="com.qfedu.travelsys1901.entity.Shop">
-    <id column="sid" jdbcType="INTEGER" property="sid" />
+<mapper namespace="com.qfedu.travelsys1901.dao.ShopCarMapper">
+  <resultMap id="BaseResultMap" type="com.qfedu.travelsys1901.entity.ShopCar">
+    <id column="scid" jdbcType="INTEGER" property="scid" />
     <result column="syoprice" jdbcType="INTEGER" property="syoprice" />
     <result column="schprice" jdbcType="INTEGER" property="schprice" />
-    <result column="sphoto" jdbcType="VARCHAR" property="sphoto" />
     <result column="sstan" jdbcType="VARCHAR" property="sstan" />
     <result column="smax" jdbcType="INTEGER" property="smax" />
     <result column="sdate" jdbcType="DATE" property="sdate" />
     <result column="svline" jdbcType="VARCHAR" property="svline" />
+    <result column="sphone" jdbcType="VARCHAR" property="sphone" />
   </resultMap>
   <sql id="Base_Column_List">
-    sid, syoprice, schprice, sphoto, sstan, smax, sdate, svline
+    scid, syoprice, schprice, sstan, smax, sdate, svline, sphone
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from t_shop
-    where sid = #{sid,jdbcType=INTEGER}
+    from t_shopcar
+    where scid = #{scid,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from t_shop
-    where sid = #{sid,jdbcType=INTEGER}
+    delete from t_shopcar
+    where scid = #{scid,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.qfedu.travelsys1901.entity.Shop">
-    insert into t_shop (sid, syoprice, schprice, 
-      sphoto, sstan, smax, 
-      sdate, svline)
-    values (#{sid,jdbcType=INTEGER}, #{syoprice,jdbcType=INTEGER}, #{schprice,jdbcType=INTEGER}, 
-      #{sphoto,jdbcType=VARCHAR}, #{sstan,jdbcType=VARCHAR}, #{smax,jdbcType=INTEGER}, 
-      #{sdate,jdbcType=DATE}, #{svline,jdbcType=VARCHAR})
+  <insert id="insert" parameterType="com.qfedu.travelsys1901.entity.ShopCar">
+    insert into t_shopcar (scid, syoprice, schprice, 
+      sstan, smax, sdate, svline, 
+      sphone)
+    values (#{scid,jdbcType=INTEGER}, #{syoprice,jdbcType=INTEGER}, #{schprice,jdbcType=INTEGER}, 
+      #{sstan,jdbcType=VARCHAR}, #{smax,jdbcType=INTEGER}, #{sdate,jdbcType=DATE}, #{svline,jdbcType=VARCHAR}, 
+      #{sphone,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.qfedu.travelsys1901.entity.Shop">
-    insert into t_shop
+  <insert id="insertSelective" parameterType="com.qfedu.travelsys1901.entity.ShopCar">
+    insert into t_shopcar
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="sid != null">
-        sid,
+      <if test="scid != null">
+        scid,
       </if>
       <if test="syoprice != null">
         syoprice,
       </if>
       <if test="schprice != null">
         schprice,
-      </if>
-      <if test="sphoto != null">
-        sphoto,
       </if>
       <if test="sstan != null">
         sstan,
@@ -59,19 +56,19 @@
       <if test="svline != null">
         svline,
       </if>
+      <if test="sphone != null">
+        sphone,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="sid != null">
-        #{sid,jdbcType=INTEGER},
+      <if test="scid != null">
+        #{scid,jdbcType=INTEGER},
       </if>
       <if test="syoprice != null">
         #{syoprice,jdbcType=INTEGER},
       </if>
       <if test="schprice != null">
         #{schprice,jdbcType=INTEGER},
-      </if>
-      <if test="sphoto != null">
-        #{sphoto,jdbcType=VARCHAR},
       </if>
       <if test="sstan != null">
         #{sstan,jdbcType=VARCHAR},
@@ -85,19 +82,19 @@
       <if test="svline != null">
         #{svline,jdbcType=VARCHAR},
       </if>
+      <if test="sphone != null">
+        #{sphone,jdbcType=VARCHAR},
+      </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.qfedu.travelsys1901.entity.Shop">
-    update t_shop
+  <update id="updateByPrimaryKeySelective" parameterType="com.qfedu.travelsys1901.entity.ShopCar">
+    update t_shopcar
     <set>
       <if test="syoprice != null">
         syoprice = #{syoprice,jdbcType=INTEGER},
       </if>
       <if test="schprice != null">
         schprice = #{schprice,jdbcType=INTEGER},
-      </if>
-      <if test="sphoto != null">
-        sphoto = #{sphoto,jdbcType=VARCHAR},
       </if>
       <if test="sstan != null">
         sstan = #{sstan,jdbcType=VARCHAR},
@@ -111,25 +108,21 @@
       <if test="svline != null">
         svline = #{svline,jdbcType=VARCHAR},
       </if>
+      <if test="sphone != null">
+        sphone = #{sphone,jdbcType=VARCHAR},
+      </if>
     </set>
-    where sid = #{sid,jdbcType=INTEGER}
+    where scid = #{scid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.qfedu.travelsys1901.entity.Shop">
-    update t_shop
+  <update id="updateByPrimaryKey" parameterType="com.qfedu.travelsys1901.entity.ShopCar">
+    update t_shopcar
     set syoprice = #{syoprice,jdbcType=INTEGER},
       schprice = #{schprice,jdbcType=INTEGER},
-      sphoto = #{sphoto,jdbcType=VARCHAR},
       sstan = #{sstan,jdbcType=VARCHAR},
       smax = #{smax,jdbcType=INTEGER},
       sdate = #{sdate,jdbcType=DATE},
-      svline = #{svline,jdbcType=VARCHAR}
-    where sid = #{sid,jdbcType=INTEGER}
+      svline = #{svline,jdbcType=VARCHAR},
+      sphone = #{sphone,jdbcType=VARCHAR}
+    where scid = #{scid,jdbcType=INTEGER}
   </update>
-  <select id="findAll" resultType="com.qfedu.travelsys1901.entity.Shop">
-
-    select * from t_shop
-
-
-  </select>
-
 </mapper>

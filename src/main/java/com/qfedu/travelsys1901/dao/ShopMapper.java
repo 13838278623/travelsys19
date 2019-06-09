@@ -17,6 +17,5 @@ public interface ShopMapper {
 
     int updateByPrimaryKey(Shop record);
 
-    //查询订单
-    List<Shop> findAll();
+    List<Shop>findAll();
 }

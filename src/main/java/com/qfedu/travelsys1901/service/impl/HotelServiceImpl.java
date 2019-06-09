@@ -4,7 +4,8 @@ import com.qfedu.travelsys1901.dao.HotelMapper;
 import com.qfedu.travelsys1901.dao.UserMapper;
 import com.qfedu.travelsys1901.entity.Hotel;
 import com.qfedu.travelsys1901.entity.User;
-import com.qfedu.travelsys1901.serice.HotelService;
+
+import com.qfedu.travelsys1901.service.HotelService;
 import com.qfedu.travelsys1901.vo.JsonBean;
 import com.qfedu.travelsys1901.vo.VHotel;
 import org.springframework.beans.factory.annotation.Autowired;

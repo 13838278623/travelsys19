@@ -2,7 +2,7 @@ package com.qfedu.travelsys1901.controller;
 
 
 import com.qfedu.travelsys1901.entity.Hotel;
-import com.qfedu.travelsys1901.serice.HotelService;
+import com.qfedu.travelsys1901.service.HotelService;
 import com.qfedu.travelsys1901.vo.JsonBean;
 import com.qfedu.travelsys1901.vo.VHotel;
 import io.swagger.annotations.Api;

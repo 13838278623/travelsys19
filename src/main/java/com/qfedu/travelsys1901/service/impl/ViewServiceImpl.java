@@ -2,7 +2,7 @@ package com.qfedu.travelsys1901.service.impl;
 
 import com.qfedu.travelsys1901.dao.ViewMapper;
 import com.qfedu.travelsys1901.entity.View;
-import com.qfedu.travelsys1901.serice.ViewService;
+import com.qfedu.travelsys1901.service.ViewService;
 import com.qfedu.travelsys1901.vo.JsonBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

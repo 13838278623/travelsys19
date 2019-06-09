@@ -1,7 +1,7 @@
 package com.qfedu.travelsys1901.controller;
 
 import com.qfedu.travelsys1901.entity.User;
-import com.qfedu.travelsys1901.serice.UserService;
+import com.qfedu.travelsys1901.service.UserService;
 import com.qfedu.travelsys1901.vo.JsonBean;
 import com.qfedu.travelsys1901.vo.UseTicket;
 import io.swagger.annotations.Api;
@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.spring.web.json.Json;
+
+import javax.servlet.http.HttpSession;
 
 @Api(value = "用户操作",tags = "用户操作")
 @ResponseBody
@@ -63,6 +65,18 @@ public class UserLoginController {
             e.printStackTrace();
             return  new JsonBean(0,e.getMessage());
         }
+
+    }
+
+
+    @CrossOrigin
+    @ApiOperation(value = "登录",notes = "登录")
+    @RequestMapping("/user/login.do")
+    public JsonBean add(String uphone, String upassword, HttpSession session){
+
+
+        session.setAttribute("uphone",uphone);
+       return  userService.selectByPh(uphone,upassword);
 
     }
 
