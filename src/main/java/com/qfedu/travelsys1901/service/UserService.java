@@ -15,4 +15,6 @@ public interface UserService {
 
     void updateByPrimaryKeySelective(User  user);
     JsonBean selectByPh(String uphone ,String password);
+
+    void addUser(User user);
 }

@@ -77,7 +77,19 @@ public class UserController {
         return  userService.selectByPh(uphone,upassword);
 
     }
+    @CrossOrigin
+    @ApiOperation(value = "注册",notes = "注册")
+    @RequestMapping(value = "/user/register.do",method = RequestMethod.POST)
+    public JsonBean addUser(User user){
+        try {
+            userService.addUser(user);
+            return new JsonBean(1, null);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new JsonBean(0, e.getMessage());
+        }
 
+    }
 }
 
 
