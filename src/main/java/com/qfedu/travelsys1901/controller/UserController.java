@@ -73,7 +73,6 @@ public class UserController {
     public JsonBean add(String uphone, String upassword, HttpSession session){
         session.setAttribute("uphone",uphone);
         return  userService.selectByPh(uphone,upassword);
-
     }
     @CrossOrigin
     @ApiOperation(value = "注册",notes = "注册")
