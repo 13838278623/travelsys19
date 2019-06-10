@@ -57,9 +57,9 @@ public class UserController {
     @CrossOrigin
     @ApiOperation(value = "添加机票",notes = "添加订单")
     @RequestMapping(value = "/user/add.do", method = RequestMethod.POST)
-    public JsonBean add(UseTicket useTicket, HttpServletRequest request){
+    public JsonBean add(UseTicket useTicket){
         try {
-           //userService.addUseTicket(useTicket,request);
+           userService.addUseTicket(useTicket);
             return new JsonBean(1,null);
         } catch (Exception e) {
             e.printStackTrace();
@@ -71,8 +71,6 @@ public class UserController {
     @ApiOperation(value = "登录",notes = "登录")
     @RequestMapping(value = "/user/login.do",method = RequestMethod.GET)
     public JsonBean add(String uphone, String upassword, HttpSession session){
-
-
         session.setAttribute("uphone",uphone);
         return  userService.selectByPh(uphone,upassword);
 

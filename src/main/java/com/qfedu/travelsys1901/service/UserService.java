@@ -11,7 +11,7 @@ public interface UserService {
 
     User selectUser(int uid);
 
-    JsonBean addUseTicket (UseTicket useTicket);
+    void addUseTicket (UseTicket useTicket);
 
     void updateByPrimaryKeySelective(User  user);
     JsonBean selectByPh(String uphone ,String password);

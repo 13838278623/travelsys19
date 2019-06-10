@@ -27,7 +27,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public JsonBean addUseTicket(UseTicket useTicket) {
+    public void  addUseTicket(UseTicket useTicket) {
        Ticket tick = new Ticket();
        tick.setTtype(useTicket.getTtype());
        tick.setTcompany(useTicket.getTcompany());
@@ -45,15 +45,10 @@ public class UserServiceImpl implements UserService {
         user.setUname(useTicket.getUname());
         user.setUphone(useTicket.getTphone());
 
-        try {
-         ticketDao.insert(tick);
-            userDao.insertSelective(user);
-            return new JsonBean(1,null);
-        } catch (Exception e) {
-            e.printStackTrace();
 
-            return new JsonBean(0,e.getMessage());
-        }
+         ticketDao.insertSelective(tick);
+         userDao.insertSelective(user);
+
     }
 
     @Override
