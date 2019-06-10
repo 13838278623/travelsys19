@@ -102,23 +102,29 @@ var m= '01'
 <div class="Current">您当前的位置：<a href="#">首页</a> > 会员中心</div>
 
 <!--左-->
-<div class="Index_left">
+<div class="Index_left" >
 <div class="mod3">
-    <div class="title">
+    <div class="title" >
         <h1 class="hide_word">
             用户登陆</h1>
     </div>
+
     <form onsubmit="return false;">
     <table class="table1">
+
+
             <tr>
                 <td class="td1">
                     <span class="required">*</span><label for="uname">输入姓名</label>：
                 </td>
 
+
                 <td>
-                    <input type="text" class="input01" value="" name="uname"/>
+                  <input type="text" class="input01" value= " " name="uname" />
                 </td>
+
             </tr>
+
             <tr>
                 <td class="td1">
                     <span class="required">*</span><label for="usex">性别</label>：
@@ -195,8 +201,9 @@ var m= '01'
                 <td class="td1 v_top">
                     <label for=uaddress">通讯地址</label>：
                 </td>
+
                 <td colspan="2">
-                    <textarea class="text-box multi-line" id="Address" name="Address">
+                    <input type="text" class="input01" value=""  name="uaddress"/>
 </textarea>
                     <span class="field-validation-valid" data-valmsg-for="Address" data-valmsg-replace="true"></span>
                 </td>
@@ -324,26 +331,75 @@ $(".open").toggle(
 
 </script>
 
+<!--
 <script type="text/javascript">
     var vue = new Vue({
 
         el: "#app",
         data: {
-            date: "",
+            user: [{}]
+
         },
         methods: {
             loadData() {
                 var _this = this;
 
+                $.ajax({
+                    type:"get",
+                    url:"/user/find.do"+window.location.search,
+                    dataType: "json",
+                    success:function (data) {
+                        if(data.code==1) {
+                            var u = data.info;
+                            _this.user=u;
+                        }
+                    }
 
-                var date2 = new Date();
-                var timeInfo = date2.getFullYear() + ":" + date2.getMonth() + ":" + date2.getDate() + "  " + date2.getHours() + ":" + date2.getMinutes() + ":" + date2.getSeconds();
-                _this.date = timeInfo;
+
+                })
+
             }
         },
         created() { // 生命周期相关的函数，放在methods外面；created表示vue对象创建完成
             this.loadData()
         }
+    })
+
+</script>-->
+<script type="text/javascript">
+
+    $(function(){
+        $.ajax({
+            type:"get",
+            url:"/user/find.do"+window.location.search,
+            dataType: "json",
+            success:function (data) {
+                if(data.code==1) {
+
+                    var infos = data.info;
+
+                    $(infos).each(function () {
+
+                        $("input[name='uname']").val(infos.uname);
+                        if(infos.usex=="男"){
+                            $("input[name='男']").attr("checked","checked");
+                        }else{
+                            $("input[name='女']").attr("checked","checked");
+                        }
+                        $("input[ name='ucode']").val(infos.ucode);
+                        $("input[ name='ubirth']").val(infos.ubirth);
+                        $("input[ name='uemail']").val(infos.uemail);
+                        $("input[ name='uphone']").val(infos.uphone);
+                        $("input[ name='uzip']").val(infos.uzip);
+                        $("input[ name='uaddress']").val(infos.uaddress);
+                    })
+
+                }
+            }
+
+
+        })
+
 
 
     })
@@ -351,11 +407,7 @@ $(".open").toggle(
 
 
 
-
-
 </script>
-
-
 
 </body>
 </html>
