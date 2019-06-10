@@ -104,7 +104,7 @@
                 <a href="login.html">登录</a></div>
             <h1 class="hide_word">
                 用户注册</h1>
-            <span>或<a href="login.html">登陆</a></span>
+            <span>或<a href="login.html">登录</a></span>
         </div>
 
         <table cellpadding="0" cellspacing="0" border="0">
@@ -113,7 +113,7 @@
                     用户名：
                 </th>
                 <td>
-                    <input type="text" maxlength="30" name="UserName" class="input username">
+                    <input type="text" maxlength="30" name="uname" class="input uname">
                 </td>
                 <td>
                 </td>
@@ -123,7 +123,7 @@
                     密&emsp;码：
                 </th>
                 <td>
-                    <input type="password" maxlength="30" name="Password" class="input password">
+                    <input type="password" maxlength="30" name="upassword" class="input upassword">
                 </td>
                 <td>
                 </td>
@@ -133,7 +133,7 @@
                     再次输入密码：
                 </th>
                 <td>
-                    <input type="password" maxlength="30" name="Password2" class="input password2">
+                    <input type="password" maxlength="30" name="repassword" class="input repassword">
                 </td>
                 <td>
                 </td>
@@ -144,7 +144,7 @@
                     手机号码：
                 </th>
                 <td>
-                    <input type="text" maxlength="14" name="Mobile" class="input mobile">
+                    <input type="text" maxlength="14" name="uphone" class="input uphone">
                 </td>
                 <td>
                 </td>
@@ -154,7 +154,7 @@
                     电子邮箱：
                 </th>
                 <td>
-                    <input type="text" maxlength="30" name="Email" class="input email">
+                    <input type="text" maxlength="30" name="uemail" class="input uemail">
                 </td>
                 <td>
                 </td>
@@ -245,7 +245,37 @@
     <h4>版权所有 © 2012-2018 我的虚拟世界店铺<br />技术支持： 旅游许可证号：L-GD00000 网站备案号：粤ICP备00000000号</h4>
 </div><!--底部信息 end-->
     <script type="text/javascript">
+        var vue = new Vue({
 
+            el: "#app",
+            data: {
+                user: [{}]
+
+            },
+            methods: {
+                loadData() {
+                    var _this = this;
+
+                    $.ajax({
+                        type:"get",
+                        url:"/user/register.do"+window.location.search,
+                        dataType: "json",
+                        success:function (data) {
+                            if(data.code==1) {
+                                var u = data.info;
+                                _this.user=u;
+                            }
+                        }
+
+
+                    })
+
+                }
+            },
+            created() { // 生命周期相关的函数，放在methods外面；created表示vue对象创建完成
+                this.loadData()
+            }
+        })
     </script>
 </body>
 </html>
